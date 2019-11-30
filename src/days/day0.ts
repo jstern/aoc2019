@@ -1,12 +1,10 @@
-import { Solution } from "../util";
+import { readLines } from "../util";
 
-export class Day0 extends Solution {
-        constructor() {
-            super("sample");
-        }
+export function exampleAnswer(): string {
+    const input = readLines("sample");
+    return input.join(":");
+}
 
-        compute(lines: string[]): string {
-            return lines.join(":");
-        }
-    };
+if (process.argv[1] == __filename) {
+    console.log(exampleAnswer());
 }

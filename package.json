@@ -11,11 +11,11 @@
     "@types/node": "^12.12.14",
     "jest": "^24.9.0",
     "ts-jest": "^24.2.0",
+    "ts-node": "^8.5.4",
     "typescript": "^3.7.2"
   },
   "scripts": {
     "compile": "tsc",
-    "test": "jest",
-    "answer": "node bin/run.js"
+    "test": "jest"
   }
 }
