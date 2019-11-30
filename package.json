@@ -1,0 +1,21 @@
+{
+  "name": "aoc2019",
+  "version": "1.0.0",
+  "description": "advent of code 2019 solutions",
+  "main": "index.js",
+  "repository": "git@github.com:jstern/aoc2019.git",
+  "author": "Jon Stern <jonathan.a.stern@gmail.com>",
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.14",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "test": "jest",
+    "answer": "node bin/run.js"
+  }
+}
