@@ -1,4 +1,4 @@
-import { Spaceship, SpaceshipModule } from "../../src/stuff/spaceship";
+import { Spaceship, SpaceshipModule, advancedFuelRequired } from "../../src/stuff/spaceship";
 
 
 describe("SpaceshipModule", () => {
@@ -32,4 +32,12 @@ describe("Spaceship", () => {
             expect(ship.fuelRequired()).toEqual(expected);
         });
     });
+});
+
+describe("advancedFuelRequired", () => {
+    test("includes fuel needed for mass of fuel", () => {
+        expect(advancedFuelRequired(14)).toEqual(2);
+        expect(advancedFuelRequired(100756)).toEqual(50346);
+    });
+
 });

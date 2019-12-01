@@ -9,6 +9,18 @@ function naiveFuelRequired(mass: number) {
     return Math.max(f, 0);
 }
 
+function advancedFuelRequired(mass: number): number {
+    let remainder = naiveFuelRequired(mass);
+    let total = remainder;
+
+    while (remainder > 0) {
+        remainder = naiveFuelRequired(remainder);
+        total += remainder;
+    }
+    return total;
+}
+
+
 class SpaceshipModule {
     mass: number;
     fuelComputer: FuelComputer;
@@ -36,4 +48,4 @@ class Spaceship {
     };
 }
 
-export { SpaceshipModule, Spaceship };
+export { SpaceshipModule, Spaceship, advancedFuelRequired };
