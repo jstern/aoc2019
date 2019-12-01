@@ -1,23 +1,33 @@
+interface FuelComputer {
+    (mass: number): number;
+}
+
+function naiveFuelRequired(mass: number) {
+    const f = Math.floor(mass / 3) - 2;
+
+    // puzzle doesn't require it but assume 0 is the minimum
+    return Math.max(f, 0);
+}
+
 class SpaceshipModule {
     mass: number;
+    fuelComputer: FuelComputer;
 
-    constructor(mass: number) {
+    constructor(mass: number, fc?: FuelComputer) {
         this.mass = mass;
+        this.fuelComputer = fc || naiveFuelRequired;
     };
 
     fuelRequired(): number {
-        const f = Math.floor(this.mass / 3) - 2;
-
-        // puzzle doesn't require it but assume 0 is the minimum
-        return Math.max(f, 0);
-    };
+        return this.fuelComputer(this.mass);
+    }
 }
 
 class Spaceship {
     modules: SpaceshipModule[];
 
-    constructor(input: string[]) {
-        this.modules = input.map(v => new SpaceshipModule(parseInt(v)));
+    constructor(input: string[], fc?: FuelComputer) {
+        this.modules = input.map(v => new SpaceshipModule(parseInt(v), fc));
     };
 
     fuelRequired(): number {
